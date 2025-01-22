@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/18 00:47:05 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:46:10 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@
  * [] Parse user input
  * [] sort numbers
  * [] Print operations
-*/
+ */
 
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-
 	char	*elements;
 
 	elements = join_arguments(--argc, ++argv);
-        printf("%s", elements);
-        free(elements);
-
-        /* t_stack *stack_a = create_stack(--argc, ++argv); */
-        return EXIT_SUCCESS;
+	printf("%s", elements);
+	free(elements);
+	/* t_stack *stack_a = create_stack(--argc, ++argv); */
+	return (EXIT_SUCCESS);
 }
