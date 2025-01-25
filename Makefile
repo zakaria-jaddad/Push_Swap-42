@@ -6,10 +6,55 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/01/22 15:44:32 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/01/25 20:21:21 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all: 
-	gcc lib/libft/ft_atoi.c lib/libft/ft_bzero.c lib/libft/ft_calloc.c lib/libft/ft_isalnum.c lib/libft/ft_isalpha.c lib/libft/ft_isascii.c lib/libft/ft_isdigit.c lib/libft/ft_isprint.c lib/libft/ft_itoa.c lib/libft/ft_lstadd_back_bonus.c lib/libft/ft_lstadd_front_bonus.c lib/libft/ft_lstclear_bonus.c lib/libft/ft_lstdelone_bonus.c lib/libft/ft_lstiter_bonus.c lib/libft/ft_lstlast_bonus.c lib/libft/ft_lstmap_bonus.c lib/libft/ft_lstnew_bonus.c lib/libft/ft_lstsize_bonus.c lib/libft/ft_memchr.c lib/libft/ft_memcmp.c lib/libft/ft_memcpy.c lib/libft/ft_memmove.c lib/libft/ft_memset.c lib/libft/ft_putchar_fd.c lib/libft/ft_putendl_fd.c lib/libft/ft_putnbr_fd.c lib/libft/ft_putstr_fd.c lib/libft/ft_split.c lib/libft/ft_strchr.c lib/libft/ft_strdup.c lib/libft/ft_striteri.c lib/libft/ft_strjoin.c lib/libft/ft_strlcat.c lib/libft/ft_strlcpy.c lib/libft/ft_strlen.c lib/libft/ft_strmapi.c lib/libft/ft_strncmp.c lib/libft/ft_strnstr.c lib/libft/ft_strrchr.c lib/libft/ft_strtrim.c lib/libft/ft_substr.c lib/libft/ft_tolower.c lib/libft/ft_toupper.c ./src/mandatory/create_stack.c ./src/mandatory/join_arguments.c ./src/mandatory/push_swap.c
+MAKE = make
+NAME = push_swap
 
+SRC = src/create_stack.c		\
+			src/join_arguments.c	\
+			src/push_swap.c 			\
+
+OBJ = $(SRC:.c=.o)
+
+INCLUDE = include/push_swap.h
+INCLUDE_BONUS = include/push_swap_bonus.h
+
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+
+LIBDIR = lib
+PRINTF = $(LIBDIR)/libftprintf/
+LIBFT = $(LIBDIR)/libft/
+
+$(NAME): all
+
+all: libftprintf libft $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -lftprintf -L$(PRINTF) -lft -L$(LIBFT) -o $(NAME)
+
+%.o: %.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+libftprintf: 
+	$(MAKE) -C $(PRINTF)
+
+libft: 
+	$(MAKE) -C $(LIBFT)
+
+libftprintf_fclean: 
+	$(MAKE) -C $(PRINTF) fclean
+
+libft_fclean: 
+	$(MAKE) -C $(LIBFT) fclean
+
+fclean: clean libftprintf_fclean libft_fclean
+	rm -f $(NAME)
+
+clean: 
+	rm -f $(OBJ)
+
+re: fclean all
+
+.PHONY: clean libftprintf_fclean libftprintf libft_fclean libft

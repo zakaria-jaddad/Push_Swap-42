@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 23:28:29 by zajaddad          #+#    #+#             */
-/*   Updated: 2024/11/28 15:13:09 by zajaddad         ###   ########.fr       */
+/*   Created: 2024/11/16 22:37:46 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/01/22 18:19:54 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_puthex(size_t n, const char *base, int *counter)
 {
-	size_t	length;
+	size_t	base_len;
 
-	length = 0;
-	while (*s++)
-		length++;
-	return (length);
+	base_len = ft_printf_strlen(base);
+	if (n >= base_len)
+		ft_puthex((n / base_len), base, counter);
+	*counter += ft_putchar(base[n % base_len]);
 }

@@ -3,7 +3,7 @@
 
 
 #include "../lib/libft/libft.h"
-#include "../lib/printf/ft_printf.h"
+#include "../lib/libftprintf/ft_printf.h"
 
 
 typedef struct s_stack {
@@ -14,6 +14,4 @@ typedef struct s_stack {
 
 t_stack *create_stack(int argc, char **args);
 char	*join_arguments(int argc, char **args);
-
-
 #endif // !PUSH_SWAP_H

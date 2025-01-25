@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 21:43:03 by zajaddad          #+#    #+#             */
-/*   Updated: 2024/11/17 16:13:15 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/01/17 18:14:42 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/01/25 20:15:06 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-int	ft_putstr(char *s)
+#include "../include/push_swap.h"
+
+t_stack	*create_stack(int argc, char **argv)
 {
-	if (s == NULL)
-		return (write(1, "(null)", 6));
-	return (write(1, s, ft_strlen(s)));
+  (void) argc;
+  (void) argv;
+	return (t_stack *)malloc(sizeof(t_stack));
 }

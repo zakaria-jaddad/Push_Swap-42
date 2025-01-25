@@ -5,7 +5,7 @@ SRC = ft_printf.c		\
       ft_putchar.c		\
       ft_putaddress.c		\
       ft_put_unsigned_nbr.c	\
-      ft_strlen.c		\
+      ft_printf_strlen.c		\
 
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Werror -Wextra

@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:42:56 by zajaddad          #+#    #+#             */
-/*   Updated: 2024/11/28 15:12:25 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:18:43 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-size_t	ft_strlen(const char *s);
+size_t	ft_printf_strlen(const char *s);
 void	ft_putnbr(int n, int *counter);
 void	ft_put_unsigned_nbr(unsigned int n, int *counter);
 void	ft_puthex(size_t n, const char *base, int *counter);
