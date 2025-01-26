@@ -6,31 +6,18 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 00:37:04 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/25 20:18:44 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:20:09 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <stdio.h>
 
-static int ft_isspace(char c)
+static int	ft_isspace(char c)
 {
-	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' || c == ' ');
+	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ');
 }
 
-
-static void	*free_args(char **args)
-{
-	int	i;
-
-	i = 0;
-	if (args == NULL)
-		return (NULL);
-	while (args[i])
-		free(args[i++]);
-	free(args);
-	return (NULL);
-}
 
 int	isempty_argument(char *argument)
 {

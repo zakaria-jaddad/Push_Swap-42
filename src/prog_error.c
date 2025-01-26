@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   prog_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 18:14:42 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/25 20:30:41 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/01/26 00:32:43 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/01/26 00:33:00 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*create_stack(int argc, char **argv)
+void	prog_error(char *err)
 {
-	(void)argc;
-	(void)argv;
-	return ((t_stack *)malloc(sizeof(t_stack)));
+	ft_printf("%s", err);
+	exit(EXIT_FAILURE);
 }

@@ -6,16 +6,19 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/01/25 20:21:21 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/01/26 00:41:31 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKE = make
 NAME = push_swap
 
-SRC = src/create_stack.c		\
-			src/join_arguments.c	\
-			src/push_swap.c 			\
+SRC = 	src/create_stack.c	\
+	src/join_arguments.c	\
+	src/push_swap.c 	\
+	src/free_args.c 	\
+	src/prog_error.c 	\
+
 
 OBJ = $(SRC:.c=.o)
 
