@@ -6,7 +6,7 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/01/26 00:41:31 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/01/26 02:00:33 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDE = include/push_swap.h
 INCLUDE_BONUS = include/push_swap_bonus.h
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 LIBDIR = lib
 PRINTF = $(LIBDIR)/libftprintf/

@@ -8,7 +8,7 @@ SRC = ft_printf.c		\
       ft_printf_strlen.c		\
 
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 INCLUDE = ft_printf.h
 
 CC = cc

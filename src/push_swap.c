@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/26 01:28:00 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/01/26 02:26:29 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,41 @@
  * [] Print operations
  */
 
+int	is_digit(char *element)
+{
+	int	digit;
+	int	sign;
+
+	digit = 0;
+	sign = 0;
+	while (*element)
+	{
+		if (*element == '-' || *element == '+')
+		{
+			if ((digit == 0 && sign == 0) && *(element + 1) != 0)
+			{
+				(element++, digit++, sign++);
+				continue ;
+			}
+			else
+				return (0);
+		}
+		if (!ft_isdigit(*element))
+			return (0);
+		(element++, digit++);
+	}
+	return (1);
+}
 /*
  * is_all_digits: checks if all elements are valid
  * means all elements are valid digits
  */
 static int	is_all_digits(char **elements)
 {
-	int	digit;
-	int	sign;
-
 	while (*elements)
 	{
-		digit = 0;
-		sign = 0;
-		while (**elements)
-		{
-			if (**elements == '-' || **elements == '+')
-			{
-				if ((digit == 0 && sign == 0) && *(*elements + 1) != 0)
-				{
-					((*elements)++, digit++, sign++);
-					continue ;
-				}
-				else
-					return (0);
-			}
-			if (!ft_isdigit(**elements))
-				return (0);
-			((*elements)++, digit++);
-		}
+		if (is_digit(*elements) == 0)
+			return (0);
 		elements++;
 	}
 	return (1);
@@ -70,18 +76,17 @@ int	*make_arr(char **elements)
 	int	*arr_head;
 
 	arr = (int *)malloc((count_elements(elements)) * sizeof(int));
+	arr_head = arr;
 	if (arr == NULL)
 		return (NULL);
 	while (*elements)
 	{
-		printf("ele = %s\n", *elements);
 		if (ft_atoi(*elements) == ATOIERROR || (ft_atoi(*elements) < INT_MIN
 				|| ft_atoi(*elements) > INT_MAX))
-			return (free(arr), arr = NULL);
-		*arr = ft_atoi(*elements);
+			return (free((void *) arr), arr = NULL);
+		*arr = (int) ft_atoi(*elements);
 		(arr++, elements++);
 	}
-	arr_head = arr;
 	return (arr_head);
 }
 
@@ -96,17 +101,19 @@ int	*parse_elements(char *elements)
 		return (NULL);
 	(free(elements), elements = NULL);
 
-	printf("hhhhh = %s", split_elements[0]);
 	// check if all elements are digits
 	if (is_all_digits(split_elements) == 0)
 		return (free_args(split_elements), split_elements = NULL, NULL);
 
 	// convert elements to a list of integers
 	arr = make_arr(split_elements);
+	printf("arrr %s\n", (char *) arr);
 	if (arr == NULL)
 		return (free_args(split_elements), split_elements = NULL, NULL);
+
 	for (int i = 0; i < count_elements(split_elements); i++)
 		printf("%d\n", arr[i]);
+
 	return ((int *)split_elements);
 }
 
