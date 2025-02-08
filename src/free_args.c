@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 00:17:11 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/26 00:17:40 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/08 14:27:46 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	*free_args(char **args)
 	if (args == NULL)
 		return (NULL);
 	while (args[i])
-		free(args[i++]);
+        {
+		free(args[i]);
+                args[i++] = NULL;
+        }
 	free(args);
+        args = NULL;
 	return (NULL);
 }

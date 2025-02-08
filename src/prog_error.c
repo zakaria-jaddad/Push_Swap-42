@@ -6,14 +6,15 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 00:32:43 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/26 00:33:00 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:06:52 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <unistd.h>
 
-void	prog_error(char *err)
+void	prog_error(void)
 {
-	ft_printf("%s", err);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
