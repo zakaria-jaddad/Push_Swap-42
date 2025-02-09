@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacknew.c                                         :+:      :+:    :+:   */
+/*   stacksize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 15:00:24 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 15:45:06 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/09 15:35:31 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/09 15:38:04 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-t_stack	*stacknew(int number, unsigned int index)
+int	stacksize(t_stack *stack)
 {
-	t_stack	*node;
+	int	counter;
 
-	node = (t_stack *) malloc(sizeof(t_stack));
-	if (node == NULL)
-		return (NULL);
-	node->next = NULL;
-	node->prev = NULL;
-	node->number = number;
-	node->index = index;
-	return (node);
+	counter = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		counter++;
+	}
+	return (counter);
 }
-

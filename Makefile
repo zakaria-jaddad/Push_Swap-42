@@ -6,15 +6,14 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/02/09 15:04:19 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/02/09 15:49:28 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKE = make
 NAME = push_swap
 
-SRC = 	src/create_stack.c			\
-	src/join_arguments.c			\
+SRC =	src/join_arguments.c			\
 	src/push_swap.c 			\
 	src/free_args.c 			\
 	src/prog_error.c 			\
@@ -25,6 +24,7 @@ SRC = 	src/create_stack.c			\
 	src/stack_utils/stackdelone.c		\
 	src/stack_utils/stacklast.c		\
 	src/stack_utils/stacknew.c		\
+	src/stack_utils/create_stack.c		\
 
 
 OBJ = $(SRC:.c=.o)
@@ -59,10 +59,16 @@ libftprintf_fclean:
 libft_fclean: 
 	$(MAKE) -C $(LIBFT) fclean
 
+libftprintf_clean: 
+	$(MAKE) -C $(PRINTF) fclean
+
+libft_clean: 
+	$(MAKE) -C $(LIBFT) fclean
+
 fclean: clean libftprintf_fclean libft_fclean
 	rm -f $(NAME)
 
-clean: 
+clean: libftprintf_clean libft_clean 
 	rm -f $(OBJ)
 
 re: fclean all

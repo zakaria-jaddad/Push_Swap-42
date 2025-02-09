@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:59:48 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 15:00:08 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:46:25 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,8 @@ void	stackadd_back(t_stack **stack, t_stack *new)
 	if (last == NULL)
 		*stack = new;
 	else
+        {
 		last->next = new;
+                new->prev = last;
+        }
 }
