@@ -6,12 +6,11 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:14:42 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/08 20:42:50 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:11:31 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-#include <stdio.h>
+#include "../../include/push_swap.h"
 
 static void	ft_swap(int *a, int *b)
 {
@@ -92,7 +91,7 @@ t_stack	*create_stack(int *arr, int arr_size)
 	while (i < arr_size)
 	{
 		// create stack node
-		stack_node = stack_new(arr[i], index_number(sorted_arr, arr[i],
+		stack_node = stacknew(arr[i], index_number(sorted_arr, arr[i],
 					arr_size));
 		if (stack_node == NULL)
 			return (stackclear(&stack_head), stack_head = NULL, free(sorted_arr),

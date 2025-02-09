@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/08 20:47:16 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:15:27 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /*
  * TODO:
  * [X] Parse user input
+ * [] Create stack operations
  * [] sort numbers
  * [] Print operations
  */
@@ -35,7 +36,8 @@ int	main(int argc, char **argv)
         for (t_stack *head = stack_a; head != NULL; head = head->next) {
                 printf("|number: %d index : %d|\n", head->number, head->index);
         }
-                
+        stackclear(&stack_a);
+        stack_a = NULL;
 	(void)argc;
 	(void)argv;
 	return (EXIT_SUCCESS);
