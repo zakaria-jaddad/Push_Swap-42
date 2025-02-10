@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 20:32:07 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 17:40:41 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:45:36 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void				sb(t_stack **stack);
 void				ss(t_stack **stack_a, t_stack **stack_b);
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				pb(t_stack **stack_b, t_stack **stack_a);
+void				ra(t_stack **stack);
+void				rb(t_stack **stack);
+void				rr(t_stack **stack_a, t_stack **stack_b);
 
 // ------------ input parsing ------------
 t_stack				*parse_elements(char *elements);
