@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 20:32:07 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:45:36 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:49:58 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 void				prog_error(void);
 
 // ------------ stack utils ------------
+void				stackadd_front(t_stack **stack, t_stack *new);
 void				stackadd_back(t_stack **stack, t_stack *new);
 void				stackclear(t_stack **stack);
 void				stackdelone(t_stack *node);

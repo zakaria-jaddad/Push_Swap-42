@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:43:59 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 14:38:45 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:44:47 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 static void	push(t_stack **stack_to, t_stack **stack_in)
 {
-	t_stack	*last_in;
-	t_stack	*last_to;
+        t_stack *tmp;
+        t_stack *first_in;
+        t_stack *first_to;
 
-	last_in = stacklast(*stack_in);
-	last_to = stacklast(*stack_to);
-	if (last_in->prev != NULL)
-		last_in->prev->next = NULL;
-	else
-		*stack_in = NULL;
-	last_in->prev = last_to;
-	if (last_in->prev != NULL)
-		last_in->prev->next = last_in;
-	else
-		*stack_to = last_in;
+        first_in = *stack_in;
+        first_to = *stack_to;
+
+        tmp = first_in->next;
+        first_in->next = first_to;
+        if (first_to != NULL)
+                first_to->prev = first_in;
+        if (tmp != NULL)
+                tmp->prev = NULL;
+        *stack_to = first_in;
+        *stack_in = tmp;
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
