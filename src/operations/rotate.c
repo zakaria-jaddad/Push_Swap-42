@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:12:34 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:48:38 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:34:50 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 static void	rotate(t_stack **stack)
 {
 	t_stack	*last;
-	t_stack	*first;
+	t_stack	*old_first;
+	t_stack	*new_first;
 
+	old_first = *stack;
+        new_first = old_first->next;
 	last = stacklast(*stack);
-	first = *stack;
-	last->next = first;
-	first->prev = last;
-	last->prev->next = NULL;
-	last->prev = NULL;
-	*stack = last;
+
+        old_first->next = NULL;
+        old_first->prev  = last;
+        last->next = old_first;
+        new_first->prev = NULL;
+        *stack = new_first;
 }
 
 void	ra(t_stack **stack)
