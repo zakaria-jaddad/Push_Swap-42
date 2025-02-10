@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 18:38:54 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:38:37 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,6 @@ int	main(int argc, char **argv)
         }
 
         printf("\n");
-        pb(&stack_b, &stack_a);
-        pb(&stack_b, &stack_a);
-        pb(&stack_b, &stack_a);
-        pb(&stack_b, &stack_a);
         for (t_stack *head = stack_a; head != NULL; head = head->next) {
                 printf("|number: %d index : %d| --> ", head->number, head->index);
         }
