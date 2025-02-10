@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:31 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 17:49:24 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:21:53 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 static void	swap(t_stack **stack)
 {
-	t_stack	*last;
+	t_stack	*first;
+	t_stack	*second;
 
-	last = stacklast(*stack);
-	last->next = *stack;
-	last->next->prev = last;
-	last->prev->next = NULL;
-	last->prev = NULL;
+	first = *stack;
+        second = first->next;
+        first->next = second->next;
+        if (second->next != NULL)
+                second->next->prev = first;
+        second->prev = NULL;
+        second->next = first;
+        *stack = second;
+
 }
 
 void	sa(t_stack **stack)
 {
 	if (stack == NULL || *stack == NULL)
 		return ;
-	if (stacksize(*stack) <= 1)
+	if (stacksize(*stack) == 1)
 		return ;
 	swap(stack);
 	ft_printf("sa\n");
@@ -37,7 +42,7 @@ void	sb(t_stack **stack)
 {
 	if (stack == NULL || *stack == NULL)
 		return ;
-	if (stacksize(*stack) <= 1)
+	if (stacksize(*stack) == 1)
 		return ;
 	swap(stack);
 	ft_printf("sb\n");
