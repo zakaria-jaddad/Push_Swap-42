@@ -6,7 +6,7 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/02/10 17:50:48 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/02/10 21:40:03 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC =	src/join_arguments.c			\
 	src/operations/swap.c			\
 	src/operations/push.c			\
 	src/operations/rotate.c			\
+	src/operations/reverse_rotate.c		\
 
 
 OBJ = $(SRC:.c=.o)
