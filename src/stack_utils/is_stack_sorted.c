@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prog_error.c                                       :+:      :+:    :+:   */
+/*   is_stack_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 00:32:43 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/12 14:36:58 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/11 10:31:14 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/11 10:31:55 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-#include <unistd.h>
+#include "../../include/push_swap.h"
 
-void	prog_error(void)
+int	is_stack_sorted(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		while (tmp)
+		{
+			if (stack->index > tmp->index)
+                                return (0);
+                        tmp = tmp->next;
+		}
+                stack = stack->next;
+	}
+        return (1);
 }

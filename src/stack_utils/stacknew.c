@@ -6,13 +6,13 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:00:24 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 15:45:06 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:14:22 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-t_stack	*stacknew(int number, unsigned int index)
+t_stack	*stacknew(int number, int index)
 {
 	t_stack	*node;
 
