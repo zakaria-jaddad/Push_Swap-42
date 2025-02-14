@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:58:49 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 15:47:03 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:32:48 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,3 @@ t_stack	*stacklast(t_stack *stack)
 		stack = stack->next;
 	return (stack);
 }
-

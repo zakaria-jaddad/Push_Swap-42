@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 16:43:59 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/14 18:30:36 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/14 14:54:58 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/14 14:55:12 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	if (stack_b == NULL || *stack_b == NULL)
 		return ;
 	push(stack_a, stack_b);
-	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **stack_b, t_stack **stack_a)
@@ -43,5 +42,4 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 	if (stack_a == NULL || *stack_a == NULL)
 		return ;
 	push(stack_b, stack_a);
-	ft_putstr_fd("pb\n", 1);
 }

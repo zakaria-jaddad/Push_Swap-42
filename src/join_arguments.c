@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 00:37:04 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/26 00:20:09 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:27:34 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int	ft_isspace(char c)
 	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
 		|| c == ' ');
 }
-
 
 int	isempty_argument(char *argument)
 {

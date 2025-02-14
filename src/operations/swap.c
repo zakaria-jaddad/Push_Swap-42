@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:31 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 20:21:53 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:32:16 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ static void	swap(t_stack **stack)
 	t_stack	*second;
 
 	first = *stack;
-        second = first->next;
-        first->next = second->next;
-        if (second->next != NULL)
-                second->next->prev = first;
-        second->prev = NULL;
-        second->next = first;
-        *stack = second;
-
+	second = first->next;
+	first->next = second->next;
+	if (second->next != NULL)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	*stack = second;
 }
 
 void	sa(t_stack **stack)
@@ -35,7 +34,7 @@ void	sa(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	swap(stack);
-	ft_printf("sa\n");
+	ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack **stack)
@@ -45,7 +44,7 @@ void	sb(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	swap(stack);
-	ft_printf("sb\n");
+	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
@@ -57,5 +56,5 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
+	ft_putstr_fd("ss\n", 1);
 }

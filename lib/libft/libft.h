@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:19:49 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/26 01:02:52 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:27:43 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 # ifndef ATOIERROR
 #  define ATOIERROR 9223372036854775807LL
 # endif
-long long	ft_atoi(const char *str);
+long long			ft_atoi(const char *str);
 
 /*
  * ft_calloc function contiguously allocates enough space

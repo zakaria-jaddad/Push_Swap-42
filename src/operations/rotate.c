@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:12:34 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 21:34:50 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:31:40 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ static void	rotate(t_stack **stack)
 	t_stack	*new_first;
 
 	old_first = *stack;
-        new_first = old_first->next;
+	new_first = old_first->next;
 	last = stacklast(*stack);
-
-        old_first->next = NULL;
-        old_first->prev  = last;
-        last->next = old_first;
-        new_first->prev = NULL;
-        *stack = new_first;
+	old_first->next = NULL;
+	old_first->prev = last;
+	last->next = old_first;
+	new_first->prev = NULL;
+	*stack = new_first;
 }
 
 void	ra(t_stack **stack)
@@ -36,7 +35,7 @@ void	ra(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	rotate(stack);
-	ft_printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_stack **stack)
@@ -46,7 +45,7 @@ void	rb(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	rotate(stack);
-	ft_printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
@@ -58,5 +57,5 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_printf("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }

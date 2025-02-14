@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:14:42 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:59:52 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:35:51 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	*make_sorted_arr(int *arr, int arr_size)
 	sorted_arr = malloc(sizeof(int) * arr_size);
 	if (sorted_arr == NULL)
 		return (NULL);
-	i = 0;
-	while (i < arr_size)
-		(void)(sorted_arr[i] = arr[i], i++);
+	i = -1;
+	while (++i < arr_size)
+		sorted_arr[i] = arr[i];
 	i = 0;
 	while (i < arr_size)
 	{
@@ -50,7 +50,6 @@ static int	*make_sorted_arr(int *arr, int arr_size)
 	return (sorted_arr);
 }
 
-/* returns the given number index */
 static int	index_number(int *sorted_arr, int number, int arr_size)
 {
 	int	min;
@@ -84,23 +83,19 @@ t_stack	*create_stack(int *arr, int arr_size)
 	if (arr == NULL || arr_size == 0)
 		return (NULL);
 	i = 0;
-        stack_head = NULL;
+	stack_head = NULL;
 	sorted_arr = make_sorted_arr(arr, arr_size);
 	if (sorted_arr == NULL)
 		return (NULL);
 	while (i < arr_size)
 	{
-		// create stack node
 		stack_node = stacknew(arr[i], index_number(sorted_arr, arr[i],
 					arr_size));
 		if (stack_node == NULL)
-			return (stackclear(&stack_head), stack_head = NULL, free(sorted_arr),
-				sorted_arr = NULL, NULL);
-
-                // add node to end of stack
-                stackadd_back(&stack_head, stack_node);
+			return (stackclear(&stack_head), stack_head = NULL,
+				free(sorted_arr), sorted_arr = NULL, NULL);
+		stackadd_back(&stack_head, stack_node);
 		i++;
 	}
-
 	return (free(sorted_arr), sorted_arr = NULL, stack_head);
 }

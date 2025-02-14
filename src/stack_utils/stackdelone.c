@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:00:48 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/09 15:01:11 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:32:04 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	stackdelone(t_stack *node)
 {
 	if (node != NULL)
-        {
+	{
 		free(node);
-                node = NULL;
-        }
+		node = NULL;
+	}
 }
-

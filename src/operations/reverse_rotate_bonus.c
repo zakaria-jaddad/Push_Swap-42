@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 15:58:36 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/14 18:31:11 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/14 14:56:20 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/14 14:56:45 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	rra(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	reverse_rotate(stack);
-	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack **stack)
@@ -43,7 +42,6 @@ void	rrb(t_stack **stack)
 	if (stacksize(*stack) == 1)
 		return ;
 	reverse_rotate(stack);
-	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
@@ -55,5 +53,4 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putstr_fd("rrr\n", 1);
 }

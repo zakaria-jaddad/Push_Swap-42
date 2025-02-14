@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:08:50 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/08 20:31:50 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:26:27 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ static int	*make_arr(char **elements, int *arr_size)
 				|| ft_atoi(*elements) > INT_MAX))
 			return (free(arr_head), *arr_size = 0, arr = NULL);
 		*arr = (int)ft_atoi(*elements);
-		(arr++, elements++, (*arr_size)++);
+		arr++;
+		elements++;
+		(*arr_size)++;
 	}
 	return (arr_head);
 }
@@ -69,30 +71,20 @@ t_stack	*parse_elements(char *elements)
 	char	**split_elements;
 	int		*arr;
 	int		arr_size;
-        t_stack         *stack;
+	t_stack	*stack;
 
-	// split elements based on spaces
 	split_elements = ft_split(elements, ' ');
 	if (split_elements == NULL)
 		return (NULL);
 	(free(elements), elements = NULL);
-
-	// check if all elements are digits
 	if (is_all_digits(split_elements) == 0)
 		return (free_args(split_elements), split_elements = NULL, NULL);
-
-	// convert elements to a list of integers
 	arr = make_arr(split_elements, &arr_size);
 	if (arr == NULL || arr_size == 0)
 		return (free_args(split_elements), split_elements = NULL, NULL);
 	(void)(free_args(split_elements), split_elements = NULL);
-
-	// check duplication in the list
 	if (check_duplication(arr, arr_size) == 1)
 		return (free(arr), arr = NULL, NULL);
-
-        // arr has no duplicate and not empty
-        // create stack
-        stack = create_stack(arr, arr_size);
+	stack = create_stack(arr, arr_size);
 	return (free(arr), arr = NULL, stack);
 }
