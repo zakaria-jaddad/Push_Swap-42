@@ -6,13 +6,14 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:21:51 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/14 18:29:05 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:26:18 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include "../lib/libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,14 +27,6 @@ typedef struct s_stack
 }					t_stack;
 
 void				prog_error(void);
-
-// ------------ utils ------------
-# ifndef ATOIERROR
-#  define ATOIERROR 9223372036854775807LL
-# endif
-long long			ft_atoi(const char *str);
-void				ft_putstr_fd(char *s, int fd);
-char				**ft_split(char const *s, char c);
 
 // ------------ sort ------------
 void				sort_part_one(t_stack **stack_a, t_stack **stack_b);
@@ -72,19 +65,5 @@ t_stack				*parse_elements(char *elements);
 char				*join_arguments(int argc, char **args);
 void				*free_args(char **args);
 int					is_all_digits(char **elements);
-
-// ------------ get_next_line ------------
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-# include <unistd.h>
-
-char				*get_next_line(int fd);
-void				*ft_calloc(size_t count, size_t size);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strdup(const char *s1);
-char				*ft_strjoin(char const *s1, char const *s2);
-size_t				ft_strlen(const char *s);
 
 #endif // !PUSH_SWAP_H

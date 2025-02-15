@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress.c                                    :+:      :+:    :+:   */
+/*   stackadd_front.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 23:11:46 by zajaddad          #+#    #+#             */
-/*   Updated: 2024/11/16 23:13:42 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/10 17:48:04 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/10 17:49:52 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-void	ft_putaddress(size_t address, int *counter)
+#include "../../include/push_swap_bonus.h"
+
+void	stackadd_front(t_stack **stack, t_stack *new)
 {
-	*counter += ft_putstr("0x");
-	ft_puthex(address, "0123456789abcdef", counter);
+	if (!stack || !new)
+		return ;
+	new->next = *stack;
+	*stack = new;
 }

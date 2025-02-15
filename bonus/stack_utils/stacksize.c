@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   stacksize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 22:37:46 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/22 18:19:54 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/09 15:35:31 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/09 15:38:04 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-void	ft_puthex(size_t n, const char *base, int *counter)
+#include "../../include/push_swap_bonus.h"
+
+int	stacksize(t_stack *stack)
 {
-	size_t	base_len;
+	int	counter;
 
-	base_len = ft_printf_strlen(base);
-	if (n >= base_len)
-		ft_puthex((n / base_len), base, counter);
-	*counter += ft_putchar(base[n % base_len]);
+	counter = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		counter++;
+	}
+	return (counter);
 }

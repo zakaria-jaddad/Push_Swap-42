@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 02:48:31 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/14 15:07:01 by zajaddad         ###   ########.fr       */
+/*   Created: 2024/11/14 11:59:07 by zajaddad          #+#    #+#             */
+/*   Updated: 2024/12/04 21:11:01 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+
+#include "../include/push_swap_bonus.h"
 
 int	get_new_line_index(char *s)
 {
@@ -102,6 +103,8 @@ char	*get_next_line(int fd)
 	int			i;
 
 	i = 0;
+	if (fd == 4)
+		return (free(rest), rest = NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 		return (free(rest), rest = NULL);
 	buffer = read_line(fd, rest, &i);

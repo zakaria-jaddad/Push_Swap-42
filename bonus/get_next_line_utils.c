@@ -6,11 +6,21 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:28:33 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/14 19:19:41 by zajaddad         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:54:54 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
 
+#include "../include/push_swap_bonus.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	length;
+
+	length = 0;
+	while (*s++)
+		length++;
+	return (length);
+}
 
 void	*ft_calloc(size_t count, size_t size)
 {

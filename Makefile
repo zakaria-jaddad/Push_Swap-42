@@ -11,34 +11,62 @@
 # **************************************************************************** #
 
 MAKE = make
+
+
+MSRC =	mandatory/join_arguments.c				\
+		mandatory/push_swap.c 					\
+		mandatory/free_args.c 					\
+		mandatory/prog_error.c 					\
+		mandatory/is_all_digits.c				\
+		mandatory/parse_elements.c				\
+		mandatory/stack_utils/stackadd_back.c	\
+		mandatory/stack_utils/stackadd_front.c	\
+		mandatory/stack_utils/stackclear.c		\
+		mandatory/stack_utils/stackdelone.c		\
+		mandatory/stack_utils/stacklast.c		\
+		mandatory/stack_utils/stacknew.c		\
+		mandatory/stack_utils/create_stack.c	\
+		mandatory/stack_utils/stacksize.c		\
+		mandatory/stack_utils/is_stack_sorted.c	\
+		mandatory/operations/swap.c				\
+		mandatory/operations/push.c				\
+		mandatory/operations/rotate.c			\
+		mandatory/operations/reverse_rotate.c	\
+		mandatory/hardcoded_sort.c				\
+		mandatory/sort_part_one.c				\
+		mandatory/sort_part_two.c				\
+
+BSRC =	bonus/join_arguments.c				\
+		bonus/checker.c 					\
+		bonus/free_args.c 					\
+		bonus/prog_error.c 					\
+		bonus/is_all_digits.c				\
+		bonus/parse_elements.c				\
+		bonus/stack_utils/stackadd_back.c	\
+		bonus/stack_utils/stackadd_front.c	\
+		bonus/stack_utils/stackclear.c		\
+		bonus/stack_utils/stackdelone.c		\
+		bonus/stack_utils/stacklast.c		\
+		bonus/stack_utils/stacknew.c		\
+		bonus/stack_utils/create_stack.c	\
+		bonus/stack_utils/stacksize.c		\
+		bonus/stack_utils/is_stack_sorted.c	\
+		bonus/operations/swap_bonus.c			\
+		bonus/operations/push_bonus.c			\
+		bonus/operations/rotate_bonus.c			\
+		bonus/operations/reverse_rotate_bonus.c	\
+		bonus/hardcoded_sort.c				\
+		bonus/sort_part_one.c				\
+		bonus/sort_part_two.c				\
+		bonus/get_next_line.c				\
+		bonus/get_next_line_utils.c				\
+
+
 NAME = push_swap
+BONUS_NAME = checker
 
-SRC =	src/join_arguments.c			\
-	src/push_swap.c 			\
-	src/free_args.c 			\
-	src/prog_error.c 			\
-	src/is_all_digits.c			\
-	src/parse_elements.c			\
-	src/stack_utils/stackadd_back.c		\
-	src/stack_utils/stackadd_front.c	\
-	src/stack_utils/stackclear.c		\
-	src/stack_utils/stackdelone.c		\
-	src/stack_utils/stacklast.c		\
-	src/stack_utils/stacknew.c		\
-	src/stack_utils/create_stack.c		\
-	src/stack_utils/stacksize.c		\
-	src/stack_utils/is_stack_sorted.c	\
-	src/operations/swap.c			\
-	src/operations/push.c			\
-	src/operations/rotate.c			\
-	src/operations/reverse_rotate.c		\
-	src/hardcoded_sort.c			\
-	src/sort_part_one.c			\
-	src/sort_part_two.c			\
-
-
-
-OBJ = $(SRC:.c=.o)
+MOBJ = $(MSRC:.c=.o)
+BOBJ = $(BSRC:.c=.o)
 
 INCLUDE = include/push_swap.h
 INCLUDE_BONUS = include/push_swap_bonus.h
@@ -47,41 +75,37 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 
 LIBDIR = lib
-PRINTF = $(LIBDIR)/libftprintf/
 LIBFT = $(LIBDIR)/libft/
 
 $(NAME): all
 
-all: libftprintf libft $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -lftprintf -L$(PRINTF) -lft -L$(LIBFT) -o $(NAME)
+all: libft $(MOBJ)
+	$(CC) $(CFLAGS) $(MOBJ) -lft -L$(LIBFT) -o $(NAME)
 
-%.o: %.c $(INCLUDE)
+bonus: libft $(BOBJ)
+	$(CC) $(CFLAGS) $(BOBJ) -lft -L$(LIBFT) -o $(BONUS_NAME)
+
+$(MOBJ): %.o: %.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-libftprintf: 
-	$(MAKE) -C $(PRINTF)
+$(BOBJ): %.o: %.c $(INCLUDE_BONUS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 libft: 
 	$(MAKE) -C $(LIBFT)
 
-libftprintf_fclean: 
-	$(MAKE) -C $(PRINTF) fclean
+libft_clean: 
+	$(MAKE) -C $(LIBFT) fclean
 
 libft_fclean: 
 	$(MAKE) -C $(LIBFT) fclean
 
-libftprintf_clean: 
-	$(MAKE) -C $(PRINTF) fclean
+fclean: clean libft_fclean
+	rm -f $(NAME) $(BONUS_NAME)
 
-libft_clean: 
-	$(MAKE) -C $(LIBFT) fclean
-
-fclean: clean libftprintf_fclean libft_fclean
-	rm -f $(NAME)
-
-clean: libftprintf_clean libft_clean 
-	rm -f $(OBJ)
+clean:  libft_clean 
+	rm -f $(MOBJ) $(BOBJ) 
 
 re: fclean all
 
-.PHONY: clean libftprintf_fclean libftprintf libft_fclean libft
+.PHONY: libft_fclean libft_clean libft

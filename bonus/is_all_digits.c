@@ -12,13 +12,6 @@
 
 #include "../include/push_swap.h"
 
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 static int	is_digit_string(char *element)
 {
 	int	digit;

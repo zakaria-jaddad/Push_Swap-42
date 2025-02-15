@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_unsigned_nbr.c                              :+:      :+:    :+:   */
+/*   free_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 22:18:15 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/08 13:28:18 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/01/26 00:17:11 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/13 16:30:22 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-void	ft_put_unsigned_nbr(unsigned int n, int *counter)
+#include "../include/push_swap.h"
+
+void	*free_args(char **args)
 {
-	if (n < 10)
-		*counter += ft_putchar((n + '0'));
-	else
+	int	i;
+
+	i = 0;
+	if (args == NULL)
+		return (NULL);
+	while (args[i])
 	{
-		ft_putnbr((n / 10), counter);
-		*counter += ft_putchar(((n % 10) + '0'));
+		free(args[i]);
+		args[i++] = NULL;
 	}
+	free(args);
+	args = NULL;
+	return (NULL);
 }

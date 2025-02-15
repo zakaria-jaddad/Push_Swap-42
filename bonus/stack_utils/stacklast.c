@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   stacklast.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 21:43:03 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/22 18:22:25 by zajaddad         ###   ########.fr       */
+/*   Created: 2025/02/09 14:58:49 by zajaddad          #+#    #+#             */
+/*   Updated: 2025/02/13 16:32:48 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-int	ft_putstr(char *s)
+#include "../../include/push_swap_bonus.h"
+
+t_stack	*stacklast(t_stack *stack)
 {
-	if (s == NULL)
-		return (write(1, "(null)", 6));
-	return (write(1, s, ft_printf_strlen(s)));
+	if (stack == NULL)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
