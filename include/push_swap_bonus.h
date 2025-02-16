@@ -6,15 +6,14 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 20:32:14 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/01/25 20:32:34 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:42:53 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-
-#include "../lib/libft/libft.h"
+# include "../lib/libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -28,6 +27,7 @@ typedef struct s_stack
 }					t_stack;
 
 void				prog_error(void);
+int					ft_strcmp(char *s1, char *s2);
 
 // ------------ sort ------------
 void				sort_part_one(t_stack **stack_a, t_stack **stack_b);
@@ -75,7 +75,6 @@ int					is_all_digits(char **elements);
 # ifndef OPEN_MAX
 #  define OPEN_MAX 1024
 # endif
-
 
 char				*get_next_line(int fd);
 
