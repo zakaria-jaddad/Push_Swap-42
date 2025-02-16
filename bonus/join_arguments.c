@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 00:37:04 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/13 16:27:34 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 17:12:26 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	**join_with_space(int argc, char **args)
 			return (free_args(space_args_head), NULL);
 		*space_args = ft_strjoin(*args++, " ");
 		if (*space_args++ == NULL)
-			return (free_args(space_args_head));
+			return (free_args(space_args_head), space_args_head = NULL);
 	}
 	*space_args = NULL;
 	return (space_args_head);

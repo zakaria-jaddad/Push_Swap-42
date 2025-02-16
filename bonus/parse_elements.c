@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 15:08:50 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/13 16:26:27 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 17:10:37 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_stack	*parse_elements(char *elements)
 
 	split_elements = ft_split(elements, ' ');
 	if (split_elements == NULL)
-		return (NULL);
+		return (free(elements), elements = NULL, NULL);
 	(free(elements), elements = NULL);
 	if (is_all_digits(split_elements) == 0)
 		return (free_args(split_elements), split_elements = NULL, NULL);
