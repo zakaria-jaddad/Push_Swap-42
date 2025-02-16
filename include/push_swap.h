@@ -6,14 +6,14 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:21:51 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/15 16:26:18 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:55:42 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "../lib/libft/libft.h"
+# include "../lib/libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>

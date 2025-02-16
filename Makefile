@@ -6,7 +6,7 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/02/16 13:48:30 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/02/16 15:07:54 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ BSRC =	bonus/join_arguments.c				\
 		bonus/sort_part_one.c				\
 		bonus/sort_part_two.c				\
 		bonus/get_next_line.c				\
-		bonus/get_next_line_utils.c				\
 		bonus/ft_strcmp.c				\
 
 
@@ -73,7 +72,7 @@ INCLUDE = include/push_swap.h
 INCLUDE_BONUS = include/push_swap_bonus.h
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 LIBDIR = lib
 LIBFT = $(LIBDIR)/libft/
