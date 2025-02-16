@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 00:37:04 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/16 17:12:26 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:32:25 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ char	*join_arguments(int argc, char **args)
 
 	i = 0;
 	joined_args = NULL;
-	if (argc == 0 || *args == NULL)
-		return (NULL);
 	space_args = join_with_space(argc, args);
 	if (space_args == NULL)
 		return (NULL);

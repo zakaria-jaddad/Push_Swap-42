@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/16 17:13:12 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:37:20 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,23 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	sort_part_two(stack_a, stack_b);
 }
 
+void	free_stacks(t_stack **stack_a, t_stack **stack_b)
+{
+	stackclear(stack_a);
+	stackclear(stack_b);
+	stack_a = NULL;
+	stack_b = NULL;
+}
+
 int	main(int argc, char **argv)
 {
 	char	*elements;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	elements = join_arguments(--argc, ++argv);
+	if (--argc == 0 || ++(*argv) == NULL)
+		return (EXIT_SUCCESS);
+	elements = join_arguments(argc, argv);
 	if (elements == NULL)
 		prog_error();
 	stack_b = NULL;
@@ -40,16 +50,10 @@ int	main(int argc, char **argv)
 		prog_error();
 	if (is_stack_sorted(stack_a) == 1)
 	{
-		stackclear(&stack_a);
-		stackclear(&stack_b);
-		stack_a = NULL;
-		stack_b = NULL;
+		free_stacks(&stack_a, &stack_b);
 		return (0);
 	}
 	sort(&stack_a, &stack_b);
-	stackclear(&stack_a);
-	stackclear(&stack_b);
-	stack_a = NULL;
-	stack_b = NULL;
+	free_stacks(&stack_a, &stack_b);
 	return (EXIT_SUCCESS);
 }
