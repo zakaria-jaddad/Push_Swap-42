@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/16 18:37:33 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:50:58 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (--argc == 0 || ++(*argv) == NULL)
+	if (--argc == 0 || ++(argv) == NULL)
 		return (EXIT_SUCCESS);
 	elements = join_arguments(argc, argv);
 	if (elements == NULL)
