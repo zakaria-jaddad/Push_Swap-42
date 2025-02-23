@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 20:32:14 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/16 13:42:53 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/23 20:17:27 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_stack
 
 void				prog_error(void);
 int					ft_strcmp(char *s1, char *s2);
+void				sort_stack(t_stack **stack_a, t_stack **stack_b,
+						t_list *operations);
 
 // ------------ sort ------------
 void				sort_part_one(t_stack **stack_a, t_stack **stack_b);

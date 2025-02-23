@@ -47,7 +47,7 @@ OBJ = $(SRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
 
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 INCLUDE = libft.h
 CC =  cc
 

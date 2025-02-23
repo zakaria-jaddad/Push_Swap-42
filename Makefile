@@ -6,12 +6,11 @@
 #    By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 15:29:27 by zajaddad          #+#    #+#              #
-#    Updated: 2025/02/16 15:07:54 by zajaddad         ###   ########.fr        #
+#    Updated: 2025/02/23 17:47:04 by zajaddad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKE = make
-
 
 MSRC =	mandatory/join_arguments.c				\
 		mandatory/push_swap.c 					\
@@ -36,30 +35,28 @@ MSRC =	mandatory/join_arguments.c				\
 		mandatory/sort_part_one.c				\
 		mandatory/sort_part_two.c				\
 
-BSRC =	bonus/join_arguments.c				\
-		bonus/checker.c 					\
-		bonus/free_args.c 					\
-		bonus/prog_error.c 					\
-		bonus/is_all_digits.c				\
-		bonus/parse_elements.c				\
-		bonus/stack_utils/stackadd_back.c	\
-		bonus/stack_utils/stackadd_front.c	\
-		bonus/stack_utils/stackclear.c		\
-		bonus/stack_utils/stackdelone.c		\
-		bonus/stack_utils/stacklast.c		\
-		bonus/stack_utils/stacknew.c		\
-		bonus/stack_utils/create_stack.c	\
-		bonus/stack_utils/stacksize.c		\
-		bonus/stack_utils/is_stack_sorted.c	\
+BSRC =	bonus/join_arguments_bonus.c				\
+		bonus/checker_bonus.c 					\
+		bonus/free_args_bonus.c 					\
+		bonus/prog_error_bonus.c 					\
+		bonus/is_all_digits_bonus.c				\
+		bonus/parse_elements_bonus.c				\
+		bonus/stack_utils/stackadd_back_bonus.c	\
+		bonus/stack_utils/stackadd_front_bonus.c	\
+		bonus/stack_utils/stackclear_bonus.c		\
+		bonus/stack_utils/stackdelone_bonus.c		\
+		bonus/stack_utils/stacklast_bonus.c		\
+		bonus/stack_utils/stacknew_bonus.c		\
+		bonus/stack_utils/create_stack_bonus.c	\
+		bonus/stack_utils/stacksize_bonus.c		\
+		bonus/stack_utils/is_stack_sorted_bonus.c	\
 		bonus/operations/swap_bonus.c			\
 		bonus/operations/push_bonus.c			\
 		bonus/operations/rotate_bonus.c			\
 		bonus/operations/reverse_rotate_bonus.c	\
-		bonus/hardcoded_sort.c				\
-		bonus/sort_part_one.c				\
-		bonus/sort_part_two.c				\
-		bonus/get_next_line.c				\
-		bonus/ft_strcmp.c				\
+		bonus/get_next_line_bonus.c				\
+		bonus/checker_bonus_utils.c				\
+		bonus/ft_strcmp_bonus.c				\
 
 
 NAME = push_swap
@@ -68,8 +65,8 @@ BONUS_NAME = checker
 MOBJ = $(MSRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
 
-INCLUDE = include/push_swap.h
-INCLUDE_BONUS = include/push_swap_bonus.h
+INCLUDE = include/push_swap.h lib/libft/libft.h
+INCLUDE_BONUS = include/push_swap_bonus.h lib/libft/libft.h
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -82,7 +79,7 @@ $(NAME): all
 all: libft $(MOBJ)
 	$(CC) $(CFLAGS) $(MOBJ) -lft -L$(LIBFT) -o $(NAME)
 
-bonus: libft $(BOBJ)
+bonus: libft libft_bonus $(BOBJ)
 	$(CC) $(CFLAGS) $(BOBJ) -lft -L$(LIBFT) -o $(BONUS_NAME)
 
 $(MOBJ): %.o: %.c $(INCLUDE)
@@ -93,6 +90,9 @@ $(BOBJ): %.o: %.c $(INCLUDE_BONUS)
 
 libft: 
 	$(MAKE) -C $(LIBFT)
+
+libft_bonus: 
+	$(MAKE) -C $(LIBFT) bonus
 
 libft_clean: 
 	$(MAKE) -C $(LIBFT) fclean
@@ -108,4 +108,4 @@ clean:  libft_clean
 
 re: fclean all
 
-.PHONY: libft_fclean libft_clean libft
+.PHONY: libft_fclean libft_clean libft libft_bonus

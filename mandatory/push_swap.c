@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/16 19:00:39 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:41:56 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stacksize(*stack_a) == 2)
-		return ((void)sa(stack_a));
+		return (sa(stack_a));
 	if (stacksize(*stack_a) == 3)
-		return ((void)hardcoded_three_number_sort(stack_a));
+		return (hardcoded_three_number_sort(stack_a));
 	if (stacksize(*stack_a) == 5)
-		return ((void)hardcoded_five_number_sort(stack_a, stack_b));
+		return (hardcoded_five_number_sort(stack_a, stack_b));
 	sort_part_one(stack_a, stack_b);
 	hardcoded_three_number_sort(stack_a);
 	sort_part_two(stack_a, stack_b);
