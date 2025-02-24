@@ -6,7 +6,7 @@
 /*   By: zajaddad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:00:10 by zajaddad          #+#    #+#             */
-/*   Updated: 2025/02/23 20:17:42 by zajaddad         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:19:20 by zajaddad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	main(int argc, char **argv)
 	stack_a = parse_elements(elements);
 	if (stack_a == NULL)
 		prog_error();
-	if (is_stack_sorted(stack_a) == 1)
-		return (free_stacks(&stack_a, &stack_b), 0);
 	operations = get_input(&stack_a);
 	if (operations == NULL)
 		prog_error();
